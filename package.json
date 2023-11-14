@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "build": "scripts/build.sh",
-    "watch": "tsc --watch"
+    "compile": "tsc"
   },
   "devDependencies": {
     "@girs/gjs": "^3.2.4",

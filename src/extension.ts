@@ -1,27 +1,31 @@
-import St from "gi://St";
-
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
-import { Indicator } from "./indicator.js";
-import { Graph } from "./graph.js";
-// import { Graph } from "./src/graph.js";
+
+import { DebugIndicator } from "./DebugIndicator.js";
+import { MonitorsIndicator } from "./MonitorsIndicator.js";
 
 export default class SystemMonitorExtension extends Extension {
-  enable() {
-    this._indicator = new Indicator();
-    Main.panel.addToStatusArea(this.uuid, this._indicator);
+  private _debug = false;
+  private _debugIndicator?: DebugIndicator;
+  private _monitorIndicator?: MonitorsIndicator;
 
-    const box = new St.BoxLayout();
-    const label = new St.Label({ text: "System Monitor" });
-    box.add_actor(label);
-    this._indicator.add_actor(box);
-    // Main.panel._addToPanelBox('system-monitor', box, 1, Main.panel._rightBox);
-    // this._test = new Graph(50, 50);
-    // Main.panel.addToStatusArea("yahad", this._test);
+  enable() {
+    this._monitorIndicator = new MonitorsIndicator();
+    Main.panel.addToStatusArea(this.uuid, this._monitorIndicator);
+
+    if (this._debug) {
+      this._debugIndicator = new DebugIndicator();
+      Main.panel.addToStatusArea(`${this.uuid}-debug`, this._debugIndicator);
+    }
   }
 
   disable() {
-    this._indicator.destroy();
-    this._indicator = null;
+    this._monitorIndicator?.destroy();
+    this._monitorIndicator = undefined;
+
+    if (this._debug) {
+      this._debugIndicator?.destroy();
+      this._debugIndicator = undefined;
+    }
   }
 }

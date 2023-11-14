@@ -10,8 +10,16 @@ install:
 remove:
 	rm ~/.local/share/gnome-shell/extensions/$(UUID)
 
+clean:
+	rm -rf dist
+
 build:
-	npm run build
+	cp ./metadata.json ./dist/gnome-system-monitor@tinkerer.space
+	npm run compile
+
+watch:
+	cp ./metadata.json ./dist/gnome-system-monitor@tinkerer.space
+	npm run compile -- --watch
 
 test:
 	MUTTER_DEBUG_DUMMY_MODE_SPECS=1920x1080@60 \

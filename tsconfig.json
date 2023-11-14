@@ -4,7 +4,7 @@
     "target": "ESNext",
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
-    "lib": ["es2018", "dom"],
+    "lib": ["es2020", "dom"],
     "incremental": true,
     "noImplicitAny": true,
     "noUnusedLocals": false,
