@@ -1,0 +1,8 @@
+{
+  "name": "gnome-system-monitor",
+  "description": "System information at a glance.",
+  "uuid": "gnome-system-monitor@tinkerer.space",
+  "shell-version": [
+    "45"
+  ]
+}

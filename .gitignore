@@ -1,10 +1,4 @@
-*~
-tmp
-*.pyc
-*.swp
-/.project
-/*.zip
-/*.geany
-*.out
-/_build
+/node_modules
 /dist
+
+tsconfig.tsbuildinfo

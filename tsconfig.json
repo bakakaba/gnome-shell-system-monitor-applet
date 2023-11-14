@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "target": "es2018",
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "lib": ["es2018", "dom"],
+    "incremental": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "outDir": "dist/gnome-system-monitor@tinkerer.space"
+  },
+  "include": ["src"]
+}
