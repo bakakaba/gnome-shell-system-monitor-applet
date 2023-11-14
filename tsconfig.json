@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "es2020",
-    "target": "es2018",
+    "module": "ESNext",
+    "target": "ESNext",
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
     "lib": ["es2018", "dom"],
@@ -12,10 +12,11 @@
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "importHelpers": true,
     "experimentalDecorators": true,
-    "outDir": "dist/gnome-system-monitor@tinkerer.space"
+    "outDir": "dist/gnome-system-monitor@tinkerer.space",
+    "types": ["@girs/gjs"]
   },
   "include": ["src"]
 }
