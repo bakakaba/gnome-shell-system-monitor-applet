@@ -1,11 +1,11 @@
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
 
-import { DebugIndicator } from "./DebugIndicator.js";
-import { MonitorsIndicator } from "./MonitorsIndicator.js";
+import { DebugIndicator } from "./components/DebugIndicator.js";
+import { MonitorsIndicator } from "./components/MonitorsIndicator.js";
 
 export default class SystemMonitorExtension extends Extension {
-  private _debug = false;
+  private _debug = true;
   private _debugIndicator?: DebugIndicator;
   private _monitorIndicator?: MonitorsIndicator;
 

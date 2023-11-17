@@ -13,12 +13,12 @@ remove:
 clean:
 	rm -rf dist
 
-build:
-	cp ./metadata.json ./dist/gnome-system-monitor@tinkerer.space
+build: clean
+	mkdir -p ./dist/gnome-system-monitor@tinkerer.space
+	cp src/*.{json,css} ./dist/gnome-system-monitor@tinkerer.space
 	npm run compile
 
 watch:
-	cp ./metadata.json ./dist/gnome-system-monitor@tinkerer.space
 	npm run compile -- --watch
 
 test:

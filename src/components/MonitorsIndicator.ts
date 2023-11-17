@@ -6,7 +6,9 @@ import * as PanelMenu from "resource:///org/gnome/shell/ui/panelMenu.js";
 import * as PopupMenu from "resource:///org/gnome/shell/ui/popupMenu.js";
 
 import { FrequencyMonitor } from "./FrequencyMonitor.js";
-import { IRefresh } from "./types.js";
+import { IRefresh } from "../types.js";
+import { CpuMonitor } from "./CpuMonitor.js";
+import { MemoryMonitor } from "./MemoryMonitor.js";
 
 export class MonitorsIndicator extends PanelMenu.Button {
   _init() {
@@ -14,11 +16,11 @@ export class MonitorsIndicator extends PanelMenu.Button {
 
     const box = new St.BoxLayout();
 
-    const label = new St.Label({
-      text: "System Monitor",
-      style_class: "system-status-icon",
-    });
-    box.add_actor(label);
+    // const label = new St.Label({
+    //   text: "System Monitor",
+    //   style_class: "system-status-icon",
+    // });
+    // box.add_actor(label);
 
     const monitors = this._getMonitors();
     monitors.forEach((monitor) => {
@@ -31,7 +33,7 @@ export class MonitorsIndicator extends PanelMenu.Button {
   }
 
   private _getMonitors(): IRefresh[] {
-    return [new FrequencyMonitor()];
+    return [new FrequencyMonitor(), new CpuMonitor(), new MemoryMonitor()];
   }
 
   private _startPolling(monitors: IRefresh[]) {
